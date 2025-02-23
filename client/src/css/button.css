@@ -1,0 +1,22 @@
+.button {
+  width: 100%;
+  height: 100%;
+  height: 30px;
+  border: none;
+  font-size: 1rem;
+  border-radius: 12px;
+  color: whitesmoke;
+}
+
+.blue {
+  background-color: rgb(10, 15, 61);
+}
+
+.violet {
+  background-color: #4E187F;
+}
+
+.red {
+  width: 30px;
+  background-color: rgb(170, 83, 68);
+}/*# sourceMappingURL=button.css.map */

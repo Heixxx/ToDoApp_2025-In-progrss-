@@ -1,0 +1,27 @@
+.daily {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+.daily-board {
+  width: 90%;
+  border-radius: 12px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.daily-board__lenght {
+  text-align: center;
+  font-size: 1.2rem;
+}
+.daily-board__progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 60%;
+}
+.daily-board__progress-text {
+  padding-bottom: 0.6em;
+  font-size: 1.2rem;
+}/*# sourceMappingURL=DailyTaskPanel.css.map */

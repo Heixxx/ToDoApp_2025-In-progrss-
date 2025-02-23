@@ -1,0 +1,35 @@
+@import "variables";
+
+.daily {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    &-board {
+        width: 90%;
+        border-radius: $panelBorder;
+        margin: 0 auto;
+        padding: 1rem;
+
+        &__title {
+        }
+
+        &__lenght {
+            text-align: center;
+            font-size: $TasksFontSize3;
+        }
+
+        &__progress {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            width: 60%;
+
+            &-text {
+                padding-bottom: .6em;
+                font-size: $TasksFontSize3;
+            }
+        }
+    }
+}

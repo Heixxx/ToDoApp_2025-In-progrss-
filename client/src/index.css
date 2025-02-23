@@ -1,0 +1,25 @@
+body {
+    font-family: "Open Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    min-height: 100vh;
+    background: linear-gradient(
+        to bottom,
+        rgba(17, 8, 100, 0.6),
+        #271b2c
+    );
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+    
+}

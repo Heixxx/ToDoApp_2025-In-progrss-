@@ -1,0 +1,36 @@
+.navpanel {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  transform: translateX(-163px) translateY(5px);
+  width: 200px;
+  background-color: #271b2c;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+.navpanel__table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1em;
+}
+.navpanel__table a {
+  margin: 0.4em 0;
+  display: flex;
+  padding: 1em 0;
+  padding-left: 1em;
+  margin: 0.4em 0;
+  transition: background-color 0.1s;
+  justify-content: start;
+  border-radius: 14px;
+}
+.navpanel__table a img {
+  padding-right: 2em;
+}
+.navpanel__table a:hover {
+  background-color: #B898E8;
+}
+.navpanel__table a p {
+  text-transform: none;
+  font-size: 1.4rem;
+}/*# sourceMappingURL=navPanel.css.map */

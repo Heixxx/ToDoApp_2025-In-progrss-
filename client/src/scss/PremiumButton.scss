@@ -1,0 +1,36 @@
+@import "./variables";
+@import "./global";
+
+.nav_pc__right {
+    height: 50px;
+    button {
+        margin: 0 0.2em;
+    }
+    &-premium {
+        display: flex;
+        border: none;
+        border-radius: 14px;
+        height: 40px;
+        width: 100%;
+        &-div {
+            
+            width: 100%;
+            border-radius: 14px;
+            transition: color 0.2s, box-shadow 0.2s, background-color 0.2s;
+            margin: 0;
+
+            &:hover {
+                box-shadow: 0 0 0 2px $specialColor;
+                background-color: $TasksBoardColor;
+                color: $text_color;
+            }
+            .center {
+                width: 100%;
+                font-size: 1.4rem;
+                padding: 0 2em;
+                font-weight: bold;
+                letter-spacing: .8px;
+            }
+        }
+    }
+}

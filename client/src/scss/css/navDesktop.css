@@ -1,0 +1,176 @@
+.title {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 2rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+img {
+  pointer-events: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.center {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cleanbutton {
+  background: none;
+  border: none;
+}
+
+.row {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.hoverpanel {
+  position: absolute;
+  pointer-events: none;
+  text-align: left;
+  padding: 0.5em;
+  top: 100%;
+  left: -100%;
+  transform: translateX(10px) translateY(-10px);
+  width: 220px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: whitesmoke;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 2;
+}
+.hoverpanel h3 {
+  font-size: 2rem;
+  padding: 0.2em 0;
+}
+.hoverpanel p {
+  font-size: 1.6rem;
+  padding: 0.3em 0;
+}
+
+
+nav {
+  width: 100%;
+  height: 60px;
+  height: 60px;
+  width: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  color: rgb(245, 245, 245);
+  background-color: rgb(50, 45, 66);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+nav .buttonAnim {
+  transition: 0.4s;
+  border-radius: 50%;
+}
+nav .buttonAnim:hover {
+  transform: translateY(10%);
+}
+nav .nav_pc {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+}
+nav .nav_pc .nav_pc__left,
+nav .nav_pc .nav_pc__right {
+  font-size: 4rem;
+}
+nav .nav_pc .nav_pc__left a,
+nav .nav_pc .nav_pc__right a {
+  color: rgb(245, 245, 245);
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+}
+nav .nav_pc .nav_pc__left {
+  text-align: left;
+}
+nav .nav_pc .nav_pc__right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+nav .nav_pc .nav_pc__right button {
+  margin: 0 0.2em;
+}
+nav .nav_pc .nav_pc__right-userbutton--btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: transparent;
+}
+nav .nav_pc .nav_pc__right-strike {
+  position: relative;
+}
+nav .nav_pc .nav_pc__right-strike p {
+  color: rgb(245, 245, 245);
+  margin: 0 0.2em;
+}
+nav .nav_pc .nav_pc__right-strike:hover .hoverpanel {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+nav .nav_pc .nav_pc__right-premium {
+  border: none;
+  border-radius: 14px;
+}
+nav .nav_pc .nav_pc__right-premium-div {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  transition: color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+nav .nav_pc .nav_pc__right-premium-div:hover {
+  box-shadow: 0 0 0 2px rgb(109, 42, 234);
+  background-color: rgba(66, 13, 102, 0.6);
+  color: rgb(245, 245, 245);
+}
+nav .nav_pc .nav_pc__right-premium p {
+  width: 100%;
+  padding: 0 0.2em;
+  height: 45%;
+}
+@keyframes navAnimation {
+  0% {
+    transform: translateY(-120%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+/*# sourceMappingURL=navDesktop.css.map */

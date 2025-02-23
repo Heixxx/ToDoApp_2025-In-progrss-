@@ -1,0 +1,40 @@
+@import "./variables";
+
+.navpanel{
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    transform: translateX(-163px) translateY(5px);
+    width: 200px;
+    background-color: $navColor;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    &__table{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 1em;
+        
+        a{
+            margin: .4em  0;
+            display: flex;
+            padding: 1em 0;
+            padding-left: 1em;
+            margin: .4em 0;
+            transition: background-color .1s;
+            justify-content: start;
+            border-radius: 14px;
+            img{
+                padding-right: 2em;
+            }
+            &:hover{
+                background-color: $hoverPanel;
+            }
+            p{
+                text-transform: none;
+                font-size: 1.4rem;
+            }
+        }
+    }
+}
+

@@ -1,0 +1,76 @@
+.title {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 2rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+img {
+  pointer-events: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.center {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cleanbutton {
+  background: none;
+  border: none;
+}
+
+.row {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.hoverpanel {
+  position: absolute;
+  pointer-events: none;
+  text-align: left;
+  padding: 0.5em;
+  top: 100%;
+  left: -100%;
+  transform: translateX(10px) translateY(-10px);
+  width: 220px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: whitesmoke;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 2;
+}
+.hoverpanel h3 {
+  font-size: 2rem;
+  padding: 0.2em 0;
+}
+.hoverpanel p {
+  font-size: 1.6rem;
+  padding: 0.3em 0;
+}
+
+
+.nav-mobile {
+  background-color: red;
+  width: 100%;
+  height: 60px;
+}/*# sourceMappingURL=navMobile.css.map */

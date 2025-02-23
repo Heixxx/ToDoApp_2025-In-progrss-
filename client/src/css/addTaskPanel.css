@@ -1,0 +1,97 @@
+img {
+  pointer-events: none;
+}
+
+p {
+  font-size: 1em;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-right: 6em;
+  padding-left: 6em;
+  height: 100%;
+}
+
+.center {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cleanbutton {
+  background: none;
+  border: none;
+}
+
+.row {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.hoverpanel {
+  position: absolute;
+  pointer-events: none;
+  overflow: auto;
+  text-align: left;
+  padding: 0.8em;
+  margin: 0.8em;
+  top: 100%;
+  left: -100%;
+  transform: translateX(6px) translateY(-10px);
+  width: 180px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: whitesmoke;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 2;
+}
+.hoverpanel h3 {
+  font-size: 2rem;
+  padding: 0.2em 0;
+}
+.hoverpanel p {
+  font-size: 1.4rem;
+  padding: 0.3em 0;
+}
+
+.separate {
+  position: relative;
+  transform: translateY(-0.5px);
+  width: 100%;
+  background-color: #4E187F;
+  height: 1px;
+}
+
+.addForm {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1em;
+  border-radius: 12px;
+}
+.addForm__section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.addForm__section-text {
+  font-size: 1.6rem;
+}
+.addForm__section--btn {
+  margin: 0 auto;
+  width: 40%;
+}/*# sourceMappingURL=addTaskPanel.css.map */

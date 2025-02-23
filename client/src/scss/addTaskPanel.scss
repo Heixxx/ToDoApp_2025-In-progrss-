@@ -1,0 +1,21 @@
+@import "global";
+
+.addForm {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1em;
+    border-radius: $panelBorder;
+    &__section {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        &-text {
+            font-size: 1.6rem;
+        }
+        &--btn{
+            margin: 0 auto;
+            width: 40%;
+        }
+    }
+}

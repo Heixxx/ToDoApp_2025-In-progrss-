@@ -1,0 +1,124 @@
+@import "./variables";
+@import "./global";
+
+nav {
+    position: relative;
+    z-index: 11;
+    height: 60px;
+    width: 100%;
+    background-color: $navColor;
+    // --cursorX: 0%;
+    // --cursorY: 0%;
+    // background: radial-gradient(
+    //     circle 100px at var(--cursorX) var(--cursorY),
+    //     rgba(255, 255, 255, 0.3),
+    //     $navColor 70%
+    // );
+    // background: transparent;
+    // transition: background 0.05 ease-in-out;
+    // @media (max-width: 768px) {
+    //     background: $navColor; /* Bez efektu światła */
+    //     transition: none;
+    // }
+    .nav_pc {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        .buttonAnim {
+            transition: 0.4s;
+            border-radius: 50%;
+            &:hover {
+                // background-color: transparent;
+                transform: translateY(10%);
+                // box-shadow: 0px 4px 0px 1px red;
+            }
+        }
+
+        .nav_pc__left,
+        .nav_pc__right {
+            font-size: $nav_fontSize;
+
+            a {
+                color: $text_color;
+                text-transform: uppercase;
+                font-weight: bold;
+                text-decoration: none;
+            }
+        }
+
+        .nav_pc__left {
+            text-align: left;
+
+            a {
+                h2 {
+                    cursor: pointer;
+                    padding: 0.4em;
+                }
+            }
+        }
+
+        .nav_pc__right {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            button {
+                margin: 0 0.2em;
+            }
+            &-userbutton--btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: none;
+                border-radius: 50%;
+                height: 100%;
+                width: 100%;
+                overflow: hidden;
+                cursor: pointer;
+                background-color: transparent; // No background
+            }
+            &-strike {
+                p {
+                    color: $text_color;
+                    margin: 0 0.2em;
+                }
+                .hoverpanel {
+                    background-color: $strikePanelColor;
+                }
+                &:hover .hoverpanel {
+                    opacity: 1;
+                    transform: translateY(0);
+                    visibility: visible;
+                }
+            }
+            .icons {
+                width: 30px;
+                height: 30px;
+            }
+            // &-notifications {
+            //     p{
+            //     }
+            //     img {
+            //     }
+            // }
+        }
+    }
+}
+@keyframes navAnimation {
+    0% {
+        transform: translateY(-120%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+// @media (max-width: 768px) {
+//     nav {
+//         .nav_pc {
+//             display: none;
+//         }
+//     }
+// }
