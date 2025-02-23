@@ -53,7 +53,7 @@ var app = builder.Build();
 //     app.UseSwagger();
 //     app.UseSwaggerUI();
 // }
-app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200", "https://localhost:5001"));
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200", "http://localhost:3000", "https://localhost:5001"));
 //Miedzy UseCors, a MapControllers uzywamy Middleware (.. .AddAuthentication)
 // app.UseAuthentication();                  //-Musi byc 'pierwsze'
 // app.UseAuthorization();                    //'Pyta', czy masz wazny token

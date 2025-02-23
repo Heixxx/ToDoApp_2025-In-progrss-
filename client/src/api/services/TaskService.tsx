@@ -2,10 +2,10 @@ import ApiClient from ".././clients/ApiClient";
 import { Task } from "../../Interfaces/TaskInterface";
 
 const TaskService = {
-    async getTasks(): Promise<Task | null> {
+    async getTasks(): Promise<Task[] | null> {
         try {
-            const response = await ApiClient.get<Task>("https://localhost:5001/api/app/todos");
-            return response.data;
+            const response = await ApiClient.get<Task[]>("https://localhost:5001/api/app/todos");
+            return response.data as Task[];
         } catch (error) {
             console.error(error);
             // FUTURE - toastr

@@ -37,7 +37,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks }) => {
                         const progress = getTaskProgress(task);
 
                         return (
-                            <tr key={task.id}>
+                            <tr key={task.task_id}>
                                 <td className="title">
                                     <p>{task.title}</p>
                                 </td>

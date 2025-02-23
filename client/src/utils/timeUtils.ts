@@ -7,7 +7,14 @@ export function getTaskProgress(task: Task): number {
     const start = new Date(`${task.start_date}T${task.start_time}`);
     const end = new Date(`${task.end_date}T${task.end_time}`);
     const now = new Date();
-
+    if (
+        !task.start_date ||
+        !task.end_date ||
+        !task.start_time ||
+        !task.end_time
+    ) {
+        return 0; // lub inna wartość domyślna
+    }
     const totalMs = end.getTime() - start.getTime();
     if (totalMs <= 0) {
         // Jeśli data końca <= data startu, traktujemy to jako 100% lub 0%.

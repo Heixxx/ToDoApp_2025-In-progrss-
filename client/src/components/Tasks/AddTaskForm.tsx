@@ -53,7 +53,7 @@ const AddTaskForm: React.FC<AddTaskFormProps> = ({ onAddTask, onChange }) => {
         e.preventDefault(); // without refresh
 
         const newTask: Task = {
-            id: Date.now(),
+            task_id: Date.now(),
             title,
             completed: false,
             start_date: startDateTime.slice(0, 10), // yyyy-MM-dd
