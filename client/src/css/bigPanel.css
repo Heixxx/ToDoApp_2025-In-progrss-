@@ -37,8 +37,8 @@
           backdrop-filter: blur(8px);
   border-radius: 12px;
 }
-.big-panel__grid .miniPanel h3 {
-  height: 20%;
+.big-panel__grid .miniPanel h2 span {
+  font-size: 2rem;
 }
 .big-panel__grid .miniPanel .line {
   width: 80px;

@@ -3,43 +3,28 @@ import { Task } from "../Interfaces/TaskInterface";
 /*
  % of time 
  */
-export function getTaskProgress(task: Task): number {
-    const start = new Date(`${task.start_date}T${task.start_time}`);
-    const end = new Date(`${task.end_date}T${task.end_time}`);
-    const now = new Date();
-    if (
-        !task.start_date ||
-        !task.end_date ||
-        !task.start_time ||
-        !task.end_time
-    ) {
-        return 0; // lub inna wartość domyślna
-    }
-    const totalMs = end.getTime() - start.getTime();
-    if (totalMs <= 0) {
-        // Jeśli data końca <= data startu, traktujemy to jako 100% lub 0%.
-        // Można tu dostosować logikę wg potrzeb
-        return 100;
+ export function getTaskProgress(task: Task): number {
+    if (!task.start_Date || !task.end_Date || !task.start_Time || !task.end_Time) {
+        return 0;
     }
 
-    // time pass
+    // Łączymy datę i czas w pełny string formatu ISO
+    const start = new Date(`${task.start_Date}T${task.start_Time}`);
+    const end = new Date(`${task.end_Date}T${task.end_Time}`);
+    const now = new Date();
+
+    const totalMs = end.getTime() - start.getTime();
+    if (totalMs <= 0) return 100;
+
     const elapsedMs = now.getTime() - start.getTime();
     let ratio = elapsedMs / totalMs;
 
-    if (ratio < 0) ratio = 0;
-    if (ratio > 1) ratio = 1;
-    console.log(Math.round(ratio * 100));
+    ratio = Math.max(0, Math.min(1, ratio));
     return Math.round(ratio * 100);
 }
 
-/**
- * Zwraca string z pozostałym czasem do zakończenia w formacie:
- *  - Xd, Yh (jeśli >= 24h do końca)
- *  - Xh:Ym (jeśli < 24h do końca)
- *  - "Time is up!" jeśli zadanie już się zakończyło
- */
 export function getTimeLeftString(task: Task): string {
-    const end = new Date(`${task.end_date}T${task.end_time}`);
+    const end = new Date(`${task.end_Date}T${task.end_Time}`);
     const now = new Date();
 
     const diffMs = end.getTime() - now.getTime();

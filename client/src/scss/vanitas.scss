@@ -1,0 +1,15 @@
+/* vanitas.css */
+.vanta-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Umieść w tle */
+}
+
+/* Dla zawartości na wierzchu */
+.content {
+    position: relative;
+    z-index: 1;
+}

@@ -1,113 +1,84 @@
-import React, { useEffect, useState, createContext } from "react";
-// import { format, addDays, addHours } from "date-fns";
+import React, {
+    useEffect,
+    useState,
+    createContext,
+    useCallback,
+    useMemo,
+} from "react";
 import { Task } from "../Interfaces/TaskInterface";
 import { BaseProvider } from "../Providers/BaseProvider";
 import TaskService from "../api/services/TaskService";
 
-export const TasksContext = createContext<{ tasks: Task[] }>({ tasks: [] });
+type TasksContextType = {
+    tasks: Task[];
+    loading: boolean;
+    error: Error | null;
+    refreshTasks: () => Promise<void>;
+    addTask: (task: Omit<Task, "task_Id">) => Promise<void>;
+};
 
-const date = new Date();
-// const tasksArray: Task[] = [
-//     {
-//         id: 1,
-//         title: 'fff',
-//         completed: false,
-//         start_date: "2025-02-20",
-//         end_date: "2025-02-20",
-//         start_time: format(date, "HH:mm"),
-//         end_time: format(addHours(date, 1), "HH:mm"),
-//     },
-//     {
-//         id: 2,
-//         title: 'fff',
-//         completed: false,
-//         start_date: format(addDays(date, 1), "yyyy-MM-dd"),
-//         end_date: format(addDays(date, 3), "yyyy-MM-dd"),
-//         start_time: format(addHours(date, 1), "HH:mm"),
-//         end_time: format(addHours(date, 4), "HH:mm"),
-//     },
-//     {
-//         id: 3,
-//         title: 'fafsfasafsasfff',
-//         completed: false,
-//         start_date: "2025-02-20",
-//         end_date: "2025-02-20",
-//         start_time: format(date, "HH:mm"),
-//         end_time: format(addHours(date, 1), "HH:mm"),
-//     },
-//     {
-//         id: 4,
-//         title: 'fffsfafsafsasff',
-//         completed: true,
-//         start_date: "2025-03-20",
-//         end_date: "2025-03-20",
-//         start_time: format(date, "HH:mm"),
-//         end_time: format(addHours(date, 1), "HH:mm"),
-//     },
-//     {
-//         id: 5,
-//         title: 'fffsfafsafsasff',
-//         completed: true,
-//         start_date: "2025-03-20",
-//         end_date: "2025-03-20",
-//         start_time: format(date, "HH:mm"),
-//         end_time: format(addHours(date, 1), "HH:mm"),
-//     },
-//     {
-//         id: 6,
-//         title: 'fffsfafsafsasff',
-//         completed: true,
-//         start_date: "2025-03-20",
-//         end_date: "2025-03-20",
-//         start_time: format(date, "HH:mm"),
-//         end_time: format(addHours(date, 1), "HH:mm"),
-//     },
-//     {
-//         id: 7,
-//         title: 'fffsfafsafsasff',
-//         completed: true,
-//         start_date: "2025-03-20",
-//         end_date: "2025-03-20",
-//         start_time: format(date, "HH:mm"),
-//         end_time: format(addHours(date, 1), "HH:mm"),
-//     },
-//     {
-//         id: 8,
-//         title: 'fffsfafsafsasff',
-//         completed: true,
-//         start_date: "2025-03-20",
-//         end_date: "2025-03-20",
-//         start_time: format(date, "HH:mm"),
-//         end_time: format(addHours(date, 1), "HH:mm"),
-//     },
-//     {
-//         id: 9,
-//         title: 'fffsfafsafas fs afs af saf asf as fasfa sfsasff',
-//         completed: true,
-//         start_date: "2025-03-20",
-//         end_date: "2025-03-20",
-//         start_time: format(date, "HH:mm"),
-//         end_time: format(addHours(date, 1), "HH:mm"),
-//     },
-// ];
+export const TasksContext = createContext<TasksContextType>({
+    tasks: [],
+    loading: false,
+    error: null,
+    refreshTasks: async () => {},
+    addTask: async () => {},
+});
 
 export const TasksProvider: React.FC<BaseProvider> = ({ children }) => {
     const [tasks, setTasks] = useState<Task[]>([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<Error | null>(null);
 
-    useEffect(() => {
-        const fechtData = async () => {
+    const refreshTasks = useCallback(async () => {
+        try {
             const taskData = await TaskService.getTasks();
-            if(taskData){
-                setTasks(taskData);
-            }
-        };
-        fechtData();
+            if (taskData) setTasks(taskData);
+        } catch (error) {
+            setError(new Error("Failed to fetch tasks"));
+        }
     }, []);
 
+    const addTask = useCallback(async (task: Omit<Task, "task_Id">) => {
+        try {
+            await TaskService.createTask(task);
+        } catch (error) {
+            setError(new Error("Failed to add task"));
+        }
+    }, []);
+
+    useEffect(() => {
+        const response = async () => {
+            try {
+                const taskData = await TaskService.getTasks();
+                if (taskData) setTasks(taskData);
+                console.log(taskData);
+            } catch (error) {
+                setError(new Error("Failed to fetch tasks"));
+            }
+        };
+        response();
+    }, []);
+
+    useEffect(() => {
+        const unsubscribe = TaskService.subscribe(() => {
+            refreshTasks();
+        });
+        return () => unsubscribe();
+    }, [refreshTasks]);
+    const value = useMemo(
+        () => ({
+            tasks,
+            loading,
+            error,
+            refreshTasks,
+            addTask,
+        }),
+        [tasks, loading, error, refreshTasks, addTask]
+    );
+
     return (
-        <TasksContext.Provider value={{ tasks }}>
-            {children}
-        </TasksContext.Provider>
+        <TasksContext.Provider value={value}>{children}</TasksContext.Provider>
     );
 };
 

@@ -1,38 +1,35 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../../css/addTaskPanel.css";
 import Button from "../../common/Button";
 import Input from "../../common/Input";
 import { Task } from "../../Interfaces/TaskInterface";
+import TasksContext from "../../context/TasksContext";
+import TaskService from "../../api/services/TaskService";
 
 interface AddTaskFormProps {
     onAddTask: (data: Task) => void;
-    onChange: (data: any) => void;
+    // onChange: (data: any) => void;
 }
 
-/**
- * Przycisk do dodawania nowego zadania: ma tekst + ikonkę "plus".
- */
-const AddTaskForm: React.FC<AddTaskFormProps> = ({ onAddTask, onChange }) => {
+const getLocalDateTimeString = (date: Date) => {
+    const offset = date.getTimezoneOffset() * 60000;
+    const localISOTime = (new Date(date.getTime() - offset)).toISOString();
+    return localISOTime.slice(0, 16);
+};
+
+const AddTaskForm: React.FC<AddTaskFormProps> = ({ onAddTask }) => {
     const [title, setTitle] = useState("");
     const [endDateTime, setEndDateTime] = useState("");
     const [startDateTime, setStartDateTime] = useState("");
+    const taskContext = useContext(TasksContext);
     // const [state, dispatch] = useReducer(ticketReducer, initialState);
 
     useEffect(() => {
-        // const now = new Date();
-        // const day = now.toISOString().slice(0, 10);
-        // const hr = now.getHours().toString();
-        // const min = now.getMinutes().toString().padStart(2, "0");
-        // const time = hr + ":" + min;
-
-        const now = new Date().toISOString().slice(0, 16); // yyyy-MM-ddTHH:mm
-        const start = new Date().toISOString().slice(0, 16); // yyyy-MM-ddTHH:mm
+        const now = new Date();
+        const start = getLocalDateTimeString(now);
+        const end = getLocalDateTimeString(new Date(now.getTime() + 3600000)); // +1 godzina
         setStartDateTime(start);
-        setEndDateTime(now);
-
-
-        // setStartDate(day);
-        // setStartTime(time);
+        setEndDateTime(end);
     }, []);
 
     // start_date: "2025-03-20",
@@ -50,17 +47,17 @@ const AddTaskForm: React.FC<AddTaskFormProps> = ({ onAddTask, onChange }) => {
     };
 
     const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault(); // without refresh
+        e.preventDefault();
 
         const newTask: Task = {
-            task_id: Date.now(),
             title,
-            completed: false,
-            start_date: startDateTime.slice(0, 10), // yyyy-MM-dd
-            start_time: startDateTime.slice(11, 16), // HH:mm
-            end_date: endDateTime.slice(0, 10), // yyyy-MM-dd
-            end_time: endDateTime.slice(11, 16), // HH:mm
+            start_Date: startDateTime.slice(0, 10), // Tylko data
+            start_Time: startDateTime.slice(11, 16), // Tylko czas
+            end_Date: endDateTime.slice(0, 10),
+            end_Time: endDateTime.slice(11, 16),
+            user_Id: 0,
         };
+
         onAddTask(newTask);
         clearForm();
     };

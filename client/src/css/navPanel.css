@@ -4,7 +4,7 @@
   display: flex;
   transform: translateX(-163px) translateY(5px);
   width: 200px;
-  background-color: #271b2c;
+  background-color: rgb(59, 24, 124);
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
 }

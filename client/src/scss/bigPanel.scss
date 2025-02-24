@@ -16,7 +16,7 @@
     border-radius: 12px;
 
     &__title {
-        font-size: 1.8rem;
+        font-size: $mainTitleFontSize;
         margin-bottom: 1.5rem;
         color: #fff; /* Dostosuj kolor w zależności od swojego tła */
     }
@@ -44,8 +44,11 @@
             );
             backdrop-filter: blur(8px);
             border-radius: $panelBorder;
-            h3 {
-                height: 20%;
+            h2 {
+                span{
+                    font-size: $TasksFontSize2;
+                    // font-size: $textFontSize;
+                }
             }
             .line{
                 width: 80px;

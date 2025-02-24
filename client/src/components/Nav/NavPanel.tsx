@@ -21,15 +21,15 @@ const NavPanel: React.FC<NavPanelProps> = ({ isDesktop }) => {
         <div className="navpanel">
             <div className="navpanel__table">
                 <Link to={"/"} className="link row" onClick={test}>
-                    <img src="/icons/accountIcon.svg" alt=""></img>
+                    <img src="/icons/accountIcon.svga" alt=""></img>
                     <p>View Profile</p>
                 </Link>
                 <Link to={"/"} className="link row" onClick={test}>
-                    <img src="/icons/settingsIcon.svg" alt=""></img>
+                    <img src="/icons/settingsIcon.svga" alt=""></img>
                     <p>Manage account</p>
                 </Link>
                 <Link to={"/"} className="link row" onClick={hangleTheme}>
-                    <img src="/icons/accountIcon.svg" alt=""></img>
+                    <img src="/icons/accountIcon.svga" alt=""></img>
                     <p>{theme ? 'dark' : 'light'}</p>
                 </Link>
                 <div className="separate"></div>
@@ -39,7 +39,7 @@ const NavPanel: React.FC<NavPanelProps> = ({ isDesktop }) => {
                 </Link>
                 <div className="separate"></div>
                 <Link to={"/"} className="link row" onClick={test}>
-                    <img src="/icons/settingsIcon.svg" alt=""></img>
+                    <img src="/icons/settingsIcon.svga" alt=""></img>
                     <p>Log out</p>
                 </Link>
                 <div className="premium-btn">
