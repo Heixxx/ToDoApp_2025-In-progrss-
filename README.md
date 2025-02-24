@@ -1,5 +1,6 @@
 ### ToDo App (In progress)
-![image](https://github.com/user-attachments/assets/7385a20e-6b81-4b5d-baca-d430252b1c67)
+
+![Zrzut ekranu 2025-02-24 211938](https://github.com/user-attachments/assets/16415a94-56db-4477-871b-341b3e9a164d)
 
 
 ## Description  
