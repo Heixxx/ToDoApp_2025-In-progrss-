@@ -11,10 +11,9 @@ interface InputProps {
 }
 
 const Input: React.FC<InputProps> = ({ width, height, type = "text", value = "", onChange }) => {
-    // Pobieramy aktualną datę i godzinę
     const now = new Date();
     const startDateTime = format(now, "yyyy-MM-dd'T'HH:mm"); 
-    const maxDateTime = format(addDays(now, 3), "yyyy-MM-dd'T'HH:mm"); // 3 dni do przodu
+    const maxDateTime = format(addDays(now, 3), "yyyy-MM-dd'T'HH:mm");
 
     // Obsługa zmiany wartości
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

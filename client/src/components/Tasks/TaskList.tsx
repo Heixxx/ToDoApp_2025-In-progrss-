@@ -32,12 +32,11 @@ const TaskList: React.FC<TaskListProps> = ({ tasks }) => {
 
 
     useEffect(() => {
-        // Odświeżamy co 60 sekund
         const timer = setInterval(() => {
             setTick(Date.now());
         }, 30_000);
 
-        // Wyczyszczenie interwału w unmount
+        // clean interval
         return () => clearInterval(timer);
     }, []);
 
@@ -47,7 +46,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks }) => {
                 <thead className="task-list-table-thead">
                     <tr>
                         <th>Title</th>
-                        <th>Progress</th>
+                        <th>Time</th>
                         <th>Completed</th>
                     </tr>
                 </thead>

@@ -6,26 +6,9 @@ import DailyTaskPanel from "./DailyTaskPanel";
 import AddTaskForm from "./AddTaskForm";
 import { Task } from "../../Interfaces/TaskInterface";
 import InProductionComponent from "../../temporary/InProductionComponent";
-import TaskService from "../../api/services/TaskService";
 
 const BigPanel: React.FC = () => {
     const { tasks, addTask } = useContext(TasksContext);
-    
-    const handleAddTask = async (data: Omit<Task, 'task_Id'>) => {
-        try {
-          await  addTask({
-            title: data.title,
-            start_Date: data.start_Date,
-            end_Date: data.end_Date,
-            start_Time: data.start_Time,
-            end_Time: data.end_Time,
-            user_Id: 0
-          });
-          console.log(addTask);
-        } catch (error) {
-          console.error('Error adding task:', error);
-        }
-      };
 
     return (
         <div className="big-panel container">
@@ -47,7 +30,7 @@ const BigPanel: React.FC = () => {
                         <span>Add Task</span>
                     </h2>
                     <div className="line"></div>
-                    <AddTaskForm onAddTask={handleAddTask}></AddTaskForm>
+                    <AddTaskForm></AddTaskForm>
                 </div>
                 <div className="miniPanel">
                     <h2>

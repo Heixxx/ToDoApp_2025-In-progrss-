@@ -7,21 +7,22 @@ import TasksContext from "../../context/TasksContext";
 import TaskService from "../../api/services/TaskService";
 
 interface AddTaskFormProps {
-    onAddTask: (data: Task) => void;
+    // onAddTask: (data: Task) => void;
     // onChange: (data: any) => void;
 }
 
 const getLocalDateTimeString = (date: Date) => {
     const offset = date.getTimezoneOffset() * 60000;
-    const localISOTime = (new Date(date.getTime() - offset)).toISOString();
+    const localISOTime = new Date(date.getTime() - offset).toISOString();
     return localISOTime.slice(0, 16);
 };
 
-const AddTaskForm: React.FC<AddTaskFormProps> = ({ onAddTask }) => {
+const AddTaskForm: React.FC<AddTaskFormProps> = () => {
+    const { tasks, addTask } = useContext(TasksContext);
     const [title, setTitle] = useState("");
     const [endDateTime, setEndDateTime] = useState("");
     const [startDateTime, setStartDateTime] = useState("");
-    const taskContext = useContext(TasksContext);
+    // const taskContext = useContext(TasksContext);
     // const [state, dispatch] = useReducer(ticketReducer, initialState);
 
     useEffect(() => {
@@ -45,7 +46,21 @@ const AddTaskForm: React.FC<AddTaskFormProps> = ({ onAddTask }) => {
         // setStartTime("");
         // setEndTime("");
     };
-
+    const handleAddTask = async (data: Omit<Task, "task_Id">) => {
+        try {
+            await addTask({
+                title: data.title,
+                start_Date: data.start_Date,
+                end_Date: data.end_Date,
+                start_Time: data.start_Time,
+                end_Time: data.end_Time,
+                user_Id: 0,
+            });
+            console.log(addTask);
+        } catch (error) {
+            console.error("Error adding task:", error);
+        }
+    };
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -58,7 +73,7 @@ const AddTaskForm: React.FC<AddTaskFormProps> = ({ onAddTask }) => {
             user_Id: 0,
         };
 
-        onAddTask(newTask);
+        handleAddTask(newTask);
         clearForm();
     };
 

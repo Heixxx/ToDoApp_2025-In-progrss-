@@ -6,10 +6,8 @@ import "../../css/global.css";
 interface NavMobileProps {}
 
 const NavMobile: React.FC<NavMobileProps> = () => {
-    // Stan: czy panel jest otwarty
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
-    // Linki do naszego panelu
     const navLinks = [
         { label: "Home", path: "/" },
         { label: "Tasks", path: "/tasks" },

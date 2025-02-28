@@ -19,58 +19,64 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Models.Tasks", b =>
                 {
-                    b.Property<int>("taskId")
+                    b.Property<int>("task_Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime?>("endDate")
+                    b.Property<string>("end_Date")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime?>("startDate")
+                    b.Property<string>("end_Time")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("start_Date")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("start_Time")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("title")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("userId")
+                    b.Property<int?>("user_Id")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("taskId");
+                    b.HasKey("task_Id");
 
                     b.ToTable("ToDos");
 
                     b.HasData(
                         new
                         {
-                            taskId = 1,
+                            task_Id = 1,
                             title = "test1"
                         },
                         new
                         {
-                            taskId = 2,
+                            task_Id = 2,
                             title = "test2"
                         },
                         new
                         {
-                            taskId = 3,
+                            task_Id = 3,
                             title = "test3"
                         },
                         new
                         {
-                            taskId = 4,
+                            task_Id = 4,
                             title = "test4"
                         },
                         new
                         {
-                            taskId = 5,
+                            task_Id = 5,
                             title = "test5"
                         });
                 });
 
             modelBuilder.Entity("API.Models.User", b =>
                 {
-                    b.Property<int>("userId")
+                    b.Property<int>("user_Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -78,19 +84,19 @@ namespace API.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("userId");
+                    b.HasKey("user_Id");
 
                     b.ToTable("Users");
 
                     b.HasData(
                         new
                         {
-                            userId = 1,
+                            user_Id = 1,
                             name = "admin"
                         },
                         new
                         {
-                            userId = 2,
+                            user_Id = 2,
                             name = "user"
                         });
                 });

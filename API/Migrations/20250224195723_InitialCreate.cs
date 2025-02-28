@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -17,46 +16,48 @@ namespace API.Migrations
                 name: "ToDos",
                 columns: table => new
                 {
-                    taskId = table.Column<int>(type: "INTEGER", nullable: false)
+                    task_Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    userId = table.Column<int>(type: "INTEGER", nullable: true),
+                    user_Id = table.Column<int>(type: "INTEGER", nullable: true),
                     title = table.Column<string>(type: "TEXT", nullable: false),
-                    startDate = table.Column<DateTime>(type: "TEXT", nullable: true),
-                    endDate = table.Column<DateTime>(type: "TEXT", nullable: true)
+                    start_Date = table.Column<string>(type: "TEXT", nullable: true),
+                    end_Date = table.Column<string>(type: "TEXT", nullable: true),
+                    start_Time = table.Column<string>(type: "TEXT", nullable: true),
+                    end_Time = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ToDos", x => x.taskId);
+                    table.PrimaryKey("PK_ToDos", x => x.task_Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
-                    userId = table.Column<int>(type: "INTEGER", nullable: false)
+                    user_Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     name = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.userId);
+                    table.PrimaryKey("PK_Users", x => x.user_Id);
                 });
 
             migrationBuilder.InsertData(
                 table: "ToDos",
-                columns: new[] { "taskId", "endDate", "startDate", "title", "userId" },
+                columns: new[] { "task_Id", "end_Date", "end_Time", "start_Date", "start_Time", "title", "user_Id" },
                 values: new object[,]
                 {
-                    { 1, null, null, "test1", null },
-                    { 2, null, null, "test2", null },
-                    { 3, null, null, "test3", null },
-                    { 4, null, null, "test4", null },
-                    { 5, null, null, "test5", null }
+                    { 1, null, null, null, null, "test1", null },
+                    { 2, null, null, null, null, "test2", null },
+                    { 3, null, null, null, null, "test3", null },
+                    { 4, null, null, null, null, "test4", null },
+                    { 5, null, null, null, null, "test5", null }
                 });
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "userId", "name" },
+                columns: new[] { "user_Id", "name" },
                 values: new object[,]
                 {
                     { 1, "admin" },

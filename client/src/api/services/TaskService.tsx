@@ -73,7 +73,6 @@ class TaskService {
   private handleError(error: unknown, defaultMessage: string): void {
     const message = error instanceof Error ? error.message : defaultMessage;
     console.error(`${message}:`, error);
-    // Możliwość dodania dodatkowej logiki np. wysyłanie błędów do Sentry
   }
 }
 

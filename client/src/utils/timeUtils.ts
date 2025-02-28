@@ -1,14 +1,10 @@
 import { Task } from "../Interfaces/TaskInterface";
 
-/*
- % of time 
- */
  export function getTaskProgress(task: Task): number {
     if (!task.start_Date || !task.end_Date || !task.start_Time || !task.end_Time) {
         return 0;
     }
 
-    // Łączymy datę i czas w pełny string formatu ISO
     const start = new Date(`${task.start_Date}T${task.start_Time}`);
     const end = new Date(`${task.end_Date}T${task.end_Time}`);
     const now = new Date();

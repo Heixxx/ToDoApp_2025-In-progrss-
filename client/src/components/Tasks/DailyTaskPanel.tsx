@@ -4,9 +4,6 @@ import ProgressBar from "../../common/ProgressBar";
 import UserContext from "../../context/UserContext";
 import TasksContext from "../../context/TasksContext";
 
-/**
- * Przycisk do dodawania nowego zadania: ma tekst + ikonkę "plus".
- */
 const DailyTaskPanel: React.FC = () => {
     const { user } = useContext(UserContext);
     const { tasks } = useContext(TasksContext);

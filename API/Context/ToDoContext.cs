@@ -11,15 +11,15 @@ public class ToDoContext:DbContext{
     //seed data
     protected override void OnModelCreating(ModelBuilder modelBuilder){
         modelBuilder.Entity<Tasks>().HasData(
-            new Tasks {taskId = 1, userId=null, title = "test1"},
-            new Tasks {taskId = 2, userId=null, title = "test2"},
-            new Tasks {taskId = 3, userId=null, title = "test3"},
-            new Tasks {taskId = 4, userId=null, title = "test4"},
-            new Tasks {taskId = 5, userId=null, title = "test5"}
+            new Tasks {task_Id = 1, user_Id=null, title = "test1"},
+            new Tasks {task_Id = 2, user_Id=null, title = "test2"},
+            new Tasks {task_Id = 3, user_Id=null, title = "test3"},
+            new Tasks {task_Id = 4, user_Id=null, title = "test4"},
+            new Tasks {task_Id = 5, user_Id=null, title = "test5"}
         );
         modelBuilder.Entity<User>().HasData(
-            new User {userId = 1, name = "admin"},
-            new User {userId = 2, name = "user"}
+            new User {user_Id = 1, name = "admin"},
+            new User {user_Id = 2, name = "user"}
         );
     }
 }

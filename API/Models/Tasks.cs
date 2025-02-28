@@ -9,6 +9,8 @@ public class Tasks{
     public int? user_Id {get;set;}
     [Required(ErrorMessage = "Enter title")]
     public string title {get;set;}
-    public DateTime? start_Date {get;set;}
-    public DateTime? end_Date {get;set;}
+    public string start_Date {get;set;}
+    public string end_Date {get;set;}
+    public string start_Time {get;set;}
+    public string end_Time {get;set;}
 }
