@@ -1,0 +1,35 @@
+body {
+    // Domyślny motyw jasny
+    --btn-bg: #{map-get($light-theme, 'btn-bg')};
+    --btn-text: #{map-get($light-theme, 'btn-text')};
+    --btn-hover: #{map-get($light-theme, 'btn-hover')};
+  
+    // Motyw ciemny
+    &.dark-theme {
+      --btn-bg: #{map-get($dark-theme, 'btn-bg')};
+      --btn-text: #{map-get($dark-theme, 'btn-text')};
+      --btn-hover: #{map-get($dark-theme, 'btn-hover')};
+
+    }
+  }
+  
+  // Globalne style przycisku
+  .theme-toggle-btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+  
+    &:hover {
+      background-color: var(--btn-hover);
+    }
+  
+    &:focus-visible {
+      outline: 2px solid var(--btn-text);
+      outline-offset: 2px;
+    }
+  }

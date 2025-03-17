@@ -2,9 +2,13 @@
 .task-list {
     margin: 0 auto;
     width: 100%;
-    height: 80%;
+    height: 200px;
     overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &-table {
+        margin-top: 2rem;
         width: 100%;
         border-collapse: collapse;
         &-thead {
@@ -30,6 +34,8 @@
             .list-btn {
                 display: flex;
                 gap: 0.5rem; // Odstęp między przyciskami
+                padding-left: 1em;
+                padding-right: 1em;
                 align-items: center;
                 justify-content: flex-start; // Ustawienie do lewej strony
             }

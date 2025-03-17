@@ -1,3 +1,23 @@
+
+// Kolory podstawowe
+$light-theme: (
+  'btn-bg': #f0f0f0,
+  'btn-text': #333,
+  'btn-hover': #e0e0e0,
+);
+
+$dark-theme: (
+  'btn-bg': #2d2d2d,
+  'btn-text': #fff,
+  'btn-hover': #404040,
+);
+
+$breakpoints: (
+  'small': 480px,
+  'medium': 768px,
+  'large': 1024px
+);
+
 // COLORS
 
 $text_color: whitesmoke;
@@ -31,4 +51,5 @@ $TasksFontSize1: 3.2rem;
 $TasksFontSize2: 2.0rem;
 $TasksFontSize3: 1.2rem;
 $TasksBoardColor: #82BBE9
+
 

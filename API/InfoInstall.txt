@@ -1,3 +1,0 @@
-Entity Framework SQL
-Microsoft.EntityFrameworkCore.Tools
-Microsoft.EntityFrameworkCore

@@ -1,2 +1,0 @@
-dotnet ef migrations add InitialCreate --context ToDoContext
-dotnet ef database update --context ToDoContext

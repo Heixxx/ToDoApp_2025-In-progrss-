@@ -4,7 +4,7 @@
   display: flex;
   transform: translateX(-163px) translateY(5px);
   width: 200px;
-  background-color: rgb(59, 24, 124);
+  background-color: rgb(10, 15, 61);
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
 }
@@ -28,7 +28,7 @@
   padding-right: 2em;
 }
 .navpanel__table a:hover {
-  background-color: #B898E8;
+  background-color: #331f7a;
 }
 .navpanel__table a p {
   text-transform: none;

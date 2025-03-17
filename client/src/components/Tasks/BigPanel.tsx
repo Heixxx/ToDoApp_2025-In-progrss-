@@ -23,7 +23,7 @@ const BigPanel: React.FC = () => {
                         <span>Progress</span>
                     </h2>
                     <div className="line"></div>
-                    <TaskList tasks={tasks} />
+                    <TaskList tasks={tasks}/>
                 </div>
                 <div className="miniPanel">
                     <h2>

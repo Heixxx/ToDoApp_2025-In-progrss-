@@ -1,5 +1,4 @@
 .main {
-  /* Zamiast jednolitego koloru wstawiamy gradient od #ff80b5 do #9089fc */
   padding: 0 1em;
   color: whitesmoke;
   text-align: center;
@@ -35,6 +34,6 @@
   }
 }
 .main h2 {
-  font-size: 2.6rem;
+  font-size: 3.2rem;
   margin-bottom: 0.5rem;
 }/*# sourceMappingURL=main.css.map */

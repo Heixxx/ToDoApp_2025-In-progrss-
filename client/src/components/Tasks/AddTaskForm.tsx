@@ -56,14 +56,17 @@ const AddTaskForm: React.FC<AddTaskFormProps> = () => {
                 end_Time: data.end_Time,
                 user_Id: 0,
             });
-            console.log(addTask);
         } catch (error) {
             console.error("Error adding task:", error);
         }
     };
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        if(title.length === 0 || !endDateTime){
+            // TOASTR!!!
 
+            return;
+        }
         const newTask: Task = {
             title,
             start_Date: startDateTime.slice(0, 10), // Tylko data

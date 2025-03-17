@@ -7,11 +7,7 @@
     margin: 1rem auto;
     text-align: center;
     /* Gradient + transparentne tło */
-    background: linear-gradient(
-        to bottom right,
-        $mainColor,
-        rgba(255, 255, 255, 0)
-    );
+
     backdrop-filter: blur(8px);
     border-radius: 12px;
 
@@ -27,7 +23,8 @@
         grid-template-columns: repeat(auto-fit, minmax(220px, 11fr));
         gap: 1rem;
         grid-auto-rows: min-content;
-
+        padding-left: 1rem;
+        padding-right: 1rem;
         .miniPanel {
             min-width: 100%;
             padding: 1rem;

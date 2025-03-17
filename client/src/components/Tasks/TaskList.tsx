@@ -16,6 +16,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks }) => {
     const task = useContext(TasksContext);
 
     const handleDelete = async (id: number) => {
+        console.log("wordki" + id);
         if (id === undefined) {
             return;
         }
